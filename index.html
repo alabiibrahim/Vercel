@@ -1088,6 +1088,7 @@
 
     <!-- TOOL TABS -->
     <div class="tool-tabs">
+      <button class="tab-btn active" onclick="filterProjects('all', this)">All Projects</button>
       <button class="tab-btn" onclick="filterProjects('excel', this)">📗 Excel</button>
       <button class="tab-btn" onclick="filterProjects('powerbi', this)">📘 Power BI</button>
       <button class="tab-btn" onclick="filterProjects('sql', this)">🗄 SQL</button>
@@ -1099,6 +1100,17 @@
     <div id="panel-all" class="projects-panel active">
 
       <!-- Excel Projects -->
+      <div class="project-card" data-tool="excel"> 
+        <img src="https://alabiibrahim.github.io/myportfolio/photo/Business%20IntelligenceGIF.gif" alt="Business Intelligence" class="project-img"
+          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
+        <div class="project-body">
+          <span class="project-tag">Excel</span>
+          <div class="project-title">Business Intelligence Report – Identified $1.62M in High-Value Growth</div>
+          <div class="project-desc">Interactive dashboard pinpointing revenue drivers across 300 customers and 50 product lines with weekly distribution and quarterly YoY comparisons.</div>
+          <a href="https://alabiibrahim.github.io/Business-Sales-Intelligence-Report/" target="_blank" class="project-link">Read More →</a>
+        </div>
+      </div>
+      
       <div class="project-card" data-tool="excel">
         <img src="https://alabiibrahim.github.io/myportfolio/photo/DashboardGIF.gif" alt="Superstore" class="project-img"
           onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
@@ -1107,6 +1119,18 @@
           <div class="project-title">Superstore Sales Report – Increased Sales by 20% & YoY Profit by 14.2%</div>
           <div class="project-desc">Identified top-performing product lines, customer segments, and shipping methods to maximize profit growth and streamline sales strategy.</div>
           <a href="https://alabiibrahim.github.io/Superstore-Sales-Report/" target="_blank" class="project-link">Read More →</a>
+        </div>
+      </div>
+
+
+      <div class="project-card" data-tool="excel">
+        <img src="https://alabiibrahim.github.io/myportfolio/photo/sales%20and%20marketing%20report.gif" alt="Sales Marketing" class="project-img"
+          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
+        <div class="project-body">
+          <span class="project-tag">Excel</span>
+          <div class="project-title">Sales & Marketing Performance – Reduced Call Abandonment by 15%</div>
+          <div class="project-desc">Comprehensive call center intelligence dashboard tracking 200k+ annual calls, enabling real-time monitoring of agent productivity and conversion rates.</div>
+          <a href="https://alabiibrahim.github.io/Sales-Call-Marketing-Center/" target="_blank" class="project-link">Read More →</a>
         </div>
       </div>
 
@@ -1121,27 +1145,6 @@
         </div>
       </div>
 
-      <div class="project-card" data-tool="excel">
-        <img src="https://alabiibrahim.github.io/photo/sales%20and%20marketing%20report.gif" alt="Sales Marketing" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Excel</span>
-          <div class="project-title">Sales & Marketing Performance – Reduced Call Abandonment by 15%</div>
-          <div class="project-desc">Comprehensive call center intelligence dashboard tracking 200k+ annual calls, enabling real-time monitoring of agent productivity and conversion rates.</div>
-          <a href="https://alabiibrahim.github.io/Sales-Call-Marketing-Center/" target="_blank" class="project-link">Read More →</a>
-        </div>
-      </div>
-
-      <div class="project-card" data-tool="excel"> 
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/Business%20IntelligenceGIF.gif" alt="Business Intelligence" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Excel</span>
-          <div class="project-title">Business Intelligence Report – Identified $1.62M in High-Value Growth</div>
-          <div class="project-desc">Interactive dashboard pinpointing revenue drivers across 300 customers and 50 product lines with weekly distribution and quarterly YoY comparisons.</div>
-          <a href="https://alabiibrahim.github.io/Business-Sales-Intelligence-Report/" target="_blank" class="project-link">Read More →</a>
-        </div>
-      </div>
 
       <!-- Power BI Projects -->
       <div class="project-card" data-tool="powerbi">
