@@ -3,1390 +3,518 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alabi Ibrahim is a Data Analyst working with SQL, Python, Power BI and Excel to turn business data into clear, decision-ready insights." />
+  <meta name="theme-color" content="#cc0000" />
   <title>Alabi Ibrahim | Data Analyst</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Taoma&display=swap" rel="stylesheet">
-  <!-- Fallback since Taoma may not be on Google Fonts - using Tahoma system font equivalent -->
   <style>
     :root {
       --red: #CC0000;
       --red-dark: #990000;
-      --red-light: #FF2222;
+      --red-soft: #fff0f0;
       --white: #FFFFFF;
       --off-white: #F8F8F8;
       --light-gray: #F0F0F0;
       --mid-gray: #E0E0E0;
       --text: #111111;
       --text-light: #555555;
-      --font: 'Tahoma', 'Segoe UI', sans-serif;
+      --font: Tahoma, "Segoe UI", Arial, sans-serif;
+      --shadow: 0 12px 35px rgba(0,0,0,.08);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body { font-family: var(--font); color: var(--text); background: var(--white); line-height: 1.65; }
+    a { color: inherit; }
+    img { max-width: 100%; }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font);
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
-    }
-
-    /* ====== NAV ====== */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: var(--white);
-      border-bottom: 3px solid var(--red);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 64px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      min-height: 66px; padding: 0 5%; background: var(--white);
+      border-bottom: 3px solid var(--red); box-shadow: 0 2px 16px rgba(0,0,0,.08);
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .nav-logo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--red);
-      letter-spacing: 1px;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 6px;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
+    .nav-logo { color: var(--red); font-size: 1.25rem; font-weight: 800; letter-spacing: 1px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; align-items: center; list-style: none; }
     .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border-radius: 4px;
-      transition: all 0.2s;
+      display: block; padding: 8px 10px; border-radius: 5px; text-decoration: none;
+      font-size: .75rem; font-weight: 700; letter-spacing: .45px; text-transform: uppercase;
+      transition: background .2s, color .2s;
     }
-
-    .nav-links a:hover {
-      background: var(--red);
-      color: var(--white);
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 8px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--red);
-      transition: all 0.3s;
-    }
-
+    .nav-links a:hover { color: var(--white); background: var(--red); }
+    .hamburger { display: none; border: 0; background: transparent; padding: 8px; cursor: pointer; }
+    .hamburger span { display: block; width: 25px; height: 2px; margin: 5px 0; background: var(--red); }
     .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 64px; left: 0; right: 0;
-      background: var(--white);
-      border-bottom: 3px solid var(--red);
-      padding: 16px 5%;
-      z-index: 999;
-      flex-direction: column;
-      gap: 4px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      display: none; position: fixed; top: 66px; left: 0; right: 0; z-index: 999;
+      padding: 14px 5% 20px; background: var(--white); border-bottom: 3px solid var(--red);
+      box-shadow: 0 8px 24px rgba(0,0,0,.1); flex-direction: column;
     }
-
     .mobile-menu.open { display: flex; }
-
-    .mobile-menu a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--light-gray);
-      letter-spacing: 0.5px;
-    }
-
+    .mobile-menu a { padding: 10px 0; border-bottom: 1px solid var(--light-gray); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: .86rem; }
     .mobile-menu a:hover { color: var(--red); }
 
-    /* ====== SECTIONS ====== */
-    section {
-      padding: 80px 5% 60px;
-    }
+    section { padding: 82px 5% 66px; }
+    section:nth-of-type(even) { background: var(--off-white); }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .section-label { margin-bottom: 7px; color: var(--red); font-size: .72rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+    .section-title { margin-bottom: 12px; font-size: clamp(1.8rem, 4vw, 2.55rem); line-height: 1.2; }
+    .section-line { width: 58px; height: 4px; margin-bottom: 36px; background: var(--red); border-radius: 3px; }
+    .muted { color: var(--text-light); }
 
-    section:nth-child(even) {
-      background: var(--off-white);
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--red);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-
-    .section-line {
-      width: 60px;
-      height: 4px;
-      background: var(--red);
-      border-radius: 2px;
-      margin-bottom: 40px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    /* ====== HERO ====== */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: var(--white);
-      padding-top: 100px;
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      width: 100%;
-    }
-
-    .hero-text .tagline {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: var(--red);
-      margin-bottom: 16px;
-    }
-
-    .hero-text h1 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
+    #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 112px; background: var(--white); }
+    .hero-inner { width: 100%; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr .85fr; gap: 54px; align-items: center; }
+    .tagline { margin-bottom: 16px; color: var(--red); font-size: .78rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
+    .hero-text h1 { margin-bottom: 12px; font-size: clamp(2.5rem, 5.5vw, 4.15rem); line-height: 1.06; letter-spacing: -1.5px; }
     .hero-text h1 span { color: var(--red); }
-
-    .hero-text .role {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin-bottom: 24px;
-      font-weight: 400;
+    .hero-role { margin-bottom: 22px; color: var(--text-light); font-size: 1.08rem; font-weight: 600; }
+    .hero-copy { max-width: 610px; margin-bottom: 28px; color: var(--text-light); font-size: 1.02rem; line-height: 1.8; }
+    .hero-ctas { display: flex; gap: 13px; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary, .btn-white {
+      display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+      min-height: 47px; padding: 12px 23px; border-radius: 6px; text-decoration: none;
+      font-size: .88rem; font-weight: 800; letter-spacing: .25px; transition: .2s ease;
     }
+    .btn-primary { color: var(--white); background: var(--red); border: 2px solid var(--red); }
+    .btn-primary:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); }
+    .btn-secondary { color: var(--text); background: transparent; border: 2px solid var(--text); }
+    .btn-secondary:hover { color: var(--red); border-color: var(--red); }
+    .hero-photo-wrap { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-photo-wrap::before { content: ""; position: absolute; width: 330px; height: 330px; border-radius: 50%; background: var(--red); opacity: .08; transform: translate(18px,18px); }
+    .hero-photo { position: relative; z-index: 1; width: 300px; height: 300px; object-fit: cover; border: 5px solid var(--red); border-radius: 50%; box-shadow: 0 20px 55px rgba(204,0,0,.18); }
+    .hero-fallback { position: relative; z-index: 1; width: 300px; height: 300px; border: 5px solid var(--red); border-radius: 50%; background: linear-gradient(135deg,#f0f0f0,#ddd); display: grid; place-items: center; color: #999; font-weight: 700; }
 
-    .hero-text p {
-      font-size: 1rem;
-      color: var(--text-light);
-      margin-bottom: 32px;
-      max-width: 480px;
-      line-height: 1.7;
-    }
+    .about-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 44px; align-items: start; }
+    .about-text p { margin-bottom: 15px; color: var(--text-light); line-height: 1.85; }
+    .about-highlights { padding: 28px; border-radius: 12px; background: var(--red); color: var(--white); }
+    .about-highlights h3 { margin-bottom: 18px; font-size: .82rem; letter-spacing: 1.6px; text-transform: uppercase; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+    .highlight-item:last-child { margin-bottom: 0; }
+    .highlight-icon { flex-shrink: 0; font-size: 1.15rem; }
+    .highlight-item span:last-child { font-size: .88rem; line-height: 1.55; }
 
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 22px; }
+    .skill-card { padding: 25px; background: var(--white); border: 1px solid var(--mid-gray); border-top: 4px solid var(--red); border-radius: 10px; }
+    .skill-card h3 { margin-bottom: 13px; color: var(--red); font-size: .83rem; letter-spacing: 1.3px; text-transform: uppercase; }
+    .skill-card p { color: var(--text-light); font-size: .91rem; line-height: 1.8; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .skill-tags span { padding: 6px 10px; border-radius: 5px; background: var(--red-soft); color: #8d0000; font-size: .78rem; font-weight: 700; }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--red);
-      color: var(--white);
-      padding: 14px 28px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-      letter-spacing: 0.5px;
-    }
+    .timeline { position: relative; padding-left: 31px; }
+    .timeline::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 0; width: 3px; border-radius: 3px; background: var(--mid-gray); }
+    .timeline-item { position: relative; margin-bottom: 36px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-item::before { content: ""; position: absolute; left: -38px; top: 7px; width: 13px; height: 13px; border: 3px solid var(--white); border-radius: 50%; background: var(--red); box-shadow: 0 0 0 2px var(--red); }
+    .timeline-role { font-size: 1.02rem; font-weight: 800; }
+    .timeline-company { color: var(--red); font-size: .91rem; font-weight: 700; }
+    .timeline-period { margin-top: 2px; color: var(--text-light); font-size: .8rem; }
+    .timeline-desc { max-width: 900px; margin-top: 8px; color: var(--text-light); font-size: .91rem; line-height: 1.75; }
 
-    .btn-primary:hover {
-      background: var(--red-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(204,0,0,0.3);
-    }
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 18px; }
+    .edu-card { padding: 22px; border: 1px solid var(--mid-gray); border-top: 4px solid var(--red); border-radius: 9px; background: var(--white); }
+    .edu-icon { margin-bottom: 9px; font-size: 1.6rem; }
+    .edu-title { font-size: .92rem; font-weight: 800; line-height: 1.4; }
+    .edu-issuer { margin-top: 5px; color: var(--red); font-size: .83rem; font-weight: 700; }
+    .edu-year { margin-top: 3px; color: var(--text-light); font-size: .78rem; }
+    .subheading { margin: 30px 0 16px; font-size: 1.05rem; }
 
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--text);
-      padding: 14px 28px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      border: 2px solid var(--text);
-      transition: all 0.2s;
-    }
+    .resume-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .resume-inner p { margin-bottom: 25px; color: var(--text-light); line-height: 1.8; }
+    .resume-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 13px; }
 
-    .btn-secondary:hover {
-      border-color: var(--red);
-      color: var(--red);
-    }
-
-    .hero-photo-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero-photo-wrap::before {
-      content: '';
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: var(--red);
-      opacity: 0.08;
-      transform: translate(20px, 20px);
-    }
-
-    .hero-photo {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--red);
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 20px 60px rgba(204,0,0,0.2);
-    }
-
-    .hero-photo-placeholder {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      border: 5px solid var(--red);
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 20px 60px rgba(204,0,0,0.2);
-      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .hero-photo-placeholder svg {
-      width: 80px;
-      height: 80px;
-      color: #bbb;
-    }
-
-    .hero-photo-placeholder span {
-      font-size: 0.8rem;
-      color: #bbb;
-      text-align: center;
-      padding: 0 30px;
-    }
-
-    /* ====== ABOUT ====== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .about-text p {
-      font-size: 1rem;
-      color: var(--text-light);
-      margin-bottom: 16px;
-      line-height: 1.8;
-    }
-
-    .about-highlights {
-      background: var(--red);
-      color: var(--white);
-      padding: 32px;
-      border-radius: 12px;
-    }
-
-    .about-highlights h4 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      opacity: 0.8;
-    }
-
-    .highlight-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .highlight-item .icon {
-      font-size: 1.2rem;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .highlight-item span {
-      font-size: 0.9rem;
-      line-height: 1.5;
-    }
-
-    /* ====== SKILLS ====== */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-
-    .skill-category h3 {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--red);
-      margin-bottom: 24px;
-      font-weight: 700;
-    }
-
-    .skill-item {
-      margin-bottom: 20px;
-    }
-
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .skill-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .skill-pct {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--red);
-    }
-
-    .progress-track {
-      height: 10px;
-      background: var(--mid-gray);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--red-dark), var(--red-light));
-      border-radius: 999px;
-      width: 0%;
-      transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* ====== EXPERIENCE ====== */
-    .timeline {
-      position: relative;
-      padding-left: 32px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      bottom: 0;
-      width: 3px;
-      background: var(--mid-gray);
-      border-radius: 2px;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 48px;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -37px;
-      top: 6px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--red);
-      border: 3px solid var(--white);
-      box-shadow: 0 0 0 3px var(--red);
-    }
-
-    .timeline-header {
-      margin-bottom: 8px;
-    }
-
-    .timeline-role {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .timeline-company {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--red);
-    }
-
-    .timeline-period {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      margin-top: 2px;
-    }
-
-    .timeline-desc {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-top: 8px;
-    }
-
-    /* ====== EDUCATION ====== */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .edu-card {
-      background: var(--white);
-      border: 1px solid var(--mid-gray);
-      border-radius: 10px;
-      padding: 24px;
-      border-top: 4px solid var(--red);
-      transition: box-shadow 0.2s;
-    }
-
-    .edu-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-
-    .edu-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .edu-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .edu-issuer {
-      font-size: 0.82rem;
-      color: var(--red);
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .edu-year {
-      font-size: 0.78rem;
-      color: var(--text-light);
-    }
-
-    /* ====== RESUME ====== */
-    .resume-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .resume-inner p {
-      font-size: 1rem;
-      color: var(--text-light);
-      margin-bottom: 32px;
-      line-height: 1.7;
-    }
-
-    .resume-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ====== PROJECTS ====== */
-    .tool-tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
-    }
-
-    .tab-btn {
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      border: 2px solid var(--mid-gray);
-      background: var(--white);
-      color: var(--text-light);
-      transition: all 0.2s;
-    }
-
-    .tab-btn:hover, .tab-btn.active {
-      background: var(--red);
-      color: var(--white);
-      border-color: var(--red);
-    }
-
-    .projects-panel {
-      display: none;
-    }
-
-    .projects-panel.active {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 28px;
-      animation: fadeIn 0.35s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .project-card {
-      background: var(--white);
-      border: 1px solid var(--mid-gray);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-      border-color: var(--red);
-    }
-
-    .project-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .project-img-placeholder {
-      width: 100%;
-      height: 180px;
-      background: linear-gradient(135deg, var(--light-gray), var(--mid-gray));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-    }
-
-    .project-body {
-      padding: 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--red);
-      background: rgba(204,0,0,0.08);
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-
-    .project-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-
-    .project-desc {
-      font-size: 0.83rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      flex: 1;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--red);
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
+    .tool-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .tab-btn { padding: 9px 16px; border: 2px solid var(--mid-gray); border-radius: 5px; background: var(--white); color: var(--text-light); cursor: pointer; font: 800 .78rem var(--font); text-transform: uppercase; transition: .2s; }
+    .tab-btn:hover, .tab-btn.active { border-color: var(--red); background: var(--red); color: var(--white); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(285px,1fr)); gap: 22px; }
+    .project-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--mid-gray); border-radius: 11px; background: var(--white); transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .project-card:hover { transform: translateY(-5px); border-color: var(--red); box-shadow: var(--shadow); }
+    .project-img, .project-img-placeholder { width: 100%; height: 172px; object-fit: cover; background: linear-gradient(135deg,var(--light-gray),var(--mid-gray)); }
+    .project-img-placeholder { display: grid; place-items: center; font-size: 2.2rem; }
+    .project-body { display: flex; flex: 1; flex-direction: column; padding: 19px; }
+    .project-tag { align-self: flex-start; margin-bottom: 9px; padding: 3px 8px; border-radius: 4px; background: var(--red-soft); color: var(--red-dark); font-size: .68rem; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; }
+    .project-title { margin-bottom: 8px; font-size: .94rem; font-weight: 800; line-height: 1.45; }
+    .project-desc { flex: 1; margin-bottom: 15px; color: var(--text-light); font-size: .82rem; line-height: 1.7; }
+    .project-link { align-self: flex-start; color: var(--red); font-size: .79rem; font-weight: 800; letter-spacing: .3px; text-decoration: none; text-transform: uppercase; }
     .project-link:hover { text-decoration: underline; }
+    .empty-state { grid-column: 1/-1; padding: 45px 15px; color: var(--text-light); text-align: center; }
 
-    /* ====== CONTACT ====== */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-    }
-
-    .contact-info h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      padding: 16px;
-      background: var(--light-gray);
-      border-radius: 8px;
-    }
-
-    .contact-icon {
-      font-size: 1.3rem;
-      width: 40px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .contact-item a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: start; }
+    .contact-info h3 { margin-bottom: 18px; font-size: 1.08rem; }
+    .contact-item { display: flex; align-items: center; gap: 14px; margin-bottom: 13px; padding: 14px; border-radius: 7px; background: var(--light-gray); }
+    .contact-icon { width: 32px; flex-shrink: 0; text-align: center; font-size: 1.2rem; }
+    .contact-item a, .contact-item span:last-child { overflow-wrap: anywhere; font-size: .87rem; text-decoration: none; }
     .contact-item a:hover { color: var(--red); }
+    .contact-cta { padding: 34px; border-radius: 11px; background: var(--red); color: var(--white); text-align: center; }
+    .contact-cta h3 { margin-bottom: 11px; font-size: 1.35rem; }
+    .contact-cta p { margin-bottom: 17px; font-size: .9rem; line-height: 1.7; opacity: .92; }
+    .btn-white { color: var(--red); background: var(--white); border: 2px solid var(--white); }
+    .btn-white:hover { background: var(--off-white); transform: translateY(-2px); }
+    footer { padding: 27px 5%; background: #111; color: #ccc; font-size: .82rem; text-align: center; }
+    footer a { color: #ff5555; text-decoration: none; }
+    footer p + p { margin-top: 7px; }
 
-    .contact-item span {
-      font-size: 0.9rem;
-    }
-
-    .contact-cta {
-      background: var(--red);
-      padding: 40px;
-      border-radius: 12px;
-      color: var(--white);
-      text-align: center;
-    }
-
-    .contact-cta h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .contact-cta p {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      margin-bottom: 24px;
-      line-height: 1.6;
-    }
-
-    .btn-white {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--white);
-      color: var(--red);
-      padding: 14px 28px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-white:hover {
-      background: var(--off-white);
-      transform: translateY(-2px);
-    }
-
-    /* ====== FOOTER ====== */
-    footer {
-      background: var(--text);
-      color: #ccc;
-      text-align: center;
-      padding: 32px 5%;
-      font-size: 0.85rem;
-    }
-
-    footer a {
-      color: var(--red-light);
-      text-decoration: none;
-    }
-
-    /* ====== RESPONSIVE ====== */
     @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-photo-wrap {
-        order: -1;
-      }
-
-      .hero-photo, .hero-photo-placeholder {
-        width: 220px;
-        height: 220px;
-      }
-
-      .hero-photo-wrap::before {
-        width: 240px;
-        height: 240px;
-      }
-
+      .hero-inner { grid-template-columns: 1fr; gap: 35px; text-align: center; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo, .hero-fallback { width: 225px; height: 225px; }
+      .hero-photo-wrap::before { width: 245px; height: 245px; }
+      .hero-copy { margin-left: auto; margin-right: auto; }
       .hero-ctas { justify-content: center; }
-
-      .hero-text p { margin: 0 auto 32px; }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
     }
-
     @media (max-width: 700px) {
       .nav-links { display: none; }
-      .hamburger { display: flex; }
-
-      section { padding: 60px 5% 40px; }
-
-      .timeline { padding-left: 24px; }
-      .timeline-item::before { left: -29px; }
+      .hamburger { display: block; }
+      section { padding: 66px 5% 48px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .timeline { padding-left: 25px; }
+      .timeline-item::before { left: -32px; }
+      .contact-cta { padding: 27px 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
+  <nav aria-label="Main navigation">
+    <a href="#hero" class="nav-logo">AI.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">AI.</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#resume">Resume</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onhover="toggleMenu()">About</a>
-  <a href="#skills" onclick="toggleMenu()">Skills</a>
-  <a href="#experience" onclick="toggleMenu()">Experience</a>
-  <a href="#education" onclick="toggleMenu()">Education</a>
-  <a href="#resume" onclick="toggleMenu()">Resume</a>
-  <a href="#projects" onclick="toggleMenu()">Projects</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <p class="tagline">Freelance Data Analyst</p>
-      <h1>Hi, I'm <span>Alabi<br>Ibrahim</span></h1>
-      <p class="role">Turning Data into Decisions</p>
-      <p>I help startup and growth teams turn messy, scattered data into clear, decision-ready dashboards that reduce costs, improve performance, and uncover growth opportunities.</p>
-      <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">View My Work →</a>
-        <a href="#contact" class="btn-secondary">Get In Touch</a>
-      </div>
-    </div>
-    <div class="hero-photo-wrap">
-      <img
-        src="https://alabiibrahim.github.io/myportfolio/Pics4me.png"
-        alt="Alabi Ibrahim"
-        class="hero-photo"
-        onerror="this.outerHTML='<div class=\'hero-photo-placeholder\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg><span>Profile Photo</span></div>'"
-      />
-    </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#skills" onclick="toggleMenu()">Skills</a>
+    <a href="#experience" onclick="toggleMenu()">Experience</a>
+    <a href="#education" onclick="toggleMenu()">Education</a>
+    <a href="#projects" onclick="toggleMenu()">Projects</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
   </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <p class="section-label">Who I Am</p>
-    <h2 class="section-title">About Me</h2>
-    <div class="section-line"></div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I am a data analyst who turns messy datasets into clear, decision-ready insights for startups and growing teams.</p>
-        <p>I work primarily with Python, SQL, Power BI, Excel, and Tableau. My focus sits at the intersection of analysis, modeling, and practical delivery: real-time pipelines, A/B testing, fraud detection, and interactive dashboards that stakeholders actually use</p>
-        
-        <p>Recent work includes: 
-          
-          <p> • Designing and shipping a production-style real-time fraud detection system (Kafka, Docker, XGBoost, SHAP, Streamlit) that scored 6.36M transactions at 0.9999 ROC-AUC, 89% precision, 95% recall, and under 50ms latency. Pipeline re-engineering cut processing time 95% and lifted throughput 85%.</l>
-        
-        <p> • Leading a full marketing A/B test on 588K+ records that showed a statistically significant 2.55% vs 1.79% conversion lift and guided budget reallocation</p>
-        
-        <p> • Building Power BI fraud and loan intelligence dashboards that surfaced $79.86K in losses, high-risk segments, and portfolio risk metrics for analyst and lender audiences</p>
-        
-        <p>Professionally I work as a freelance data analyst supporting for a retail startup. There I standardized financial datasets (cutting recurring errors 40%), automated Power BI reporting (improving efficiency 20%), and delivered sales performance dashboards tied to a 14% year-over-year profit improvement. Earlier I interned with Excelerate, supporting campaign analysis that informed an estimated 18% reduction in underperforming ad spend.</p>
-       
-        <p>I hold the <strong>Google Data Analytics</strong>, <strong>IBM Data Analyst Professional Certificates</strong> and <strong>Excelerate</strong> and maintain a public portfolio of end-to-end projects</p>
-        <p>Open to freelance, contract, and (remote) full-time opportunities where clean data and measurable impact matter</p>
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="tagline">Data Analyst | Freelance | Remote</p>
+        <h1>Hi, I'm <span>Alabi<br />Ibrahim</span></h1>
+        <p class="hero-role">I turn messy data into clear business decisions.</p>
+        <p class="hero-copy">I help teams make better decisions through reliable data, practical analysis, and clear reporting. I work with SQL, Python, Excel, and Power BI to clean and analyse data, automate recurring reports, measure performance, and uncover opportunities and risks.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">Explore My Projects <span aria-hidden="true">→</span></a>
+          <a href="#contact" class="btn-secondary">Let's Connect</a>
+        </div>
       </div>
-      <div class="about-highlights">
-        <h4>What I Help Teams Do</h4>
-        <div class="highlight-item">
-          <span class="icon">📊</span>
-          <span>Eliminate manual Excel reporting</span>
+      <div class="hero-photo-wrap">
+        <img src="https://alabiibrahim.github.io/myportfolio/Pics4me.png" alt="Portrait of Alabi Ibrahim" class="hero-photo" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'hero-fallback', textContent:'Alabi Ibrahim'}))" />
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Who I Am</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I am a Data Analyst who helps businesses make sense of their data. My work covers the full analysis process, from cleaning and validating raw datasets to analysing performance, building dashboards, and communicating findings in a way that supports decisions.</p>
+          <p>In my freelance work, I have standardised and validated financial datasets, reducing recurring reporting errors by approximately 40%. I have also automated Power BI reporting, improving reporting efficiency by about 20%, and built sales dashboards that helped teams track performance against targets and supported decisions linked to a 14% year-over-year profit improvement.</p>
+          <p>My project work spans marketing analytics, logistics operations, financial analysis, and fraud detection. This includes a statistical A/B test of more than 588,000 records, a six-page logistics performance report covering 85,410 loads and trips, and an end-to-end fraud detection pipeline using Python, Kafka, Docker, XGBoost, SHAP, and Streamlit.</p>
+          <p>I enjoy work where good analysis solves a real business problem, whether that means improving reporting, understanding customer and campaign behaviour, monitoring operational performance, or identifying patterns that deserve closer attention.</p>
+          <p>I am open to freelance, contract, and remote full-time Data Analyst opportunities.</p>
         </div>
-        <div class="highlight-item">
-          <span class="icon">📈</span>
-          <span>Build Power BI & Tableau dashboards for leadership</span>
+        <aside class="about-highlights">
+          <h3>What I Help Teams Do</h3>
+          <div class="highlight-item"><span class="highlight-icon">🧹</span><span>Clean, validate, and organise data teams can trust.</span></div>
+          <div class="highlight-item"><span class="highlight-icon">📊</span><span>Replace repetitive reporting with useful Excel and Power BI dashboards.</span></div>
+          <div class="highlight-item"><span class="highlight-icon">📈</span><span>Track revenue, costs, KPIs, campaigns, and business performance.</span></div>
+          <div class="highlight-item"><span class="highlight-icon">🧪</span><span>Use A/B testing and statistical analysis to evaluate business decisions.</span></div>
+          <div class="highlight-item"><span class="highlight-icon">🔎</span><span>Investigate trends, operational bottlenecks, fraud patterns, and risk.</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Capabilities</p>
+      <h2 class="section-title">Tools & Skills</h2>
+      <div class="section-line"></div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Business Intelligence & Reporting</h3>
+          <p>Building reports and dashboards that help stakeholders monitor performance and understand what is changing.</p>
+          <div class="skill-tags"><span>Power BI</span><span>DAX</span><span>Data Modelling</span><span>Excel</span><span>Power Query</span><span>PivotTables</span><span>Tableau</span><span>Google Sheets</span></div>
         </div>
-        <div class="highlight-item">
-          <span class="icon">🔍</span>
-          <span>Understand customer behavior & churn</span>
+        <div class="skill-card">
+          <h3>SQL & Data Management</h3>
+          <p>Querying, preparing, joining, and validating data for reporting and analysis.</p>
+          <div class="skill-tags"><span>SQL Server</span><span>PostgreSQL</span><span>Joins</span><span>CTEs</span><span>Subqueries</span><span>Data Validation</span></div>
         </div>
-        <div class="highlight-item">
-          <span class="icon">💰</span>
-          <span>Track revenue, costs, and product performance</span>
+        <div class="skill-card">
+          <h3>Python & Statistical Analysis</h3>
+          <p>Using Python for data preparation, exploratory analysis, statistical testing, and machine-learning projects.</p>
+          <div class="skill-tags"><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>SciPy</span><span>Scikit-learn</span><span>Jupyter</span></div>
         </div>
-        <div class="highlight-item">
-          <span class="icon">🎯</span>
-          <span>Turn raw data into actionable business decisions</span>
+        <div class="skill-card">
+          <h3>Analytics & Delivery</h3>
+          <p>Turning analysis into practical reporting, clear findings, and recommendations stakeholders can use.</p>
+          <div class="skill-tags"><span>Data Cleaning</span><span>Data Quality Checks</span><span>A/B Testing</span><span>Hypothesis Testing</span><span>KPI Tracking</span><span>Report Automation</span><span>Stakeholder Reporting</span></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <p class="section-label">Capabilities</p>
-    <h2 class="section-title">Tools & Skills</h2>
-    <div class="section-line"></div>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>🛠 Technical Skills</h3>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Microsoft Excel</span><span class="skill-pct">85%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="95"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Power BI</span><span class="skill-pct">80%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="92"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">SQL (SSMS)</span><span class="skill-pct">80%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="88"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Python (Pandas, Matplotlib)</span><span class="skill-pct">75%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="80"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Tableau</span><span class="skill-pct">75%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="85"></div></div>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>🧠 Soft Skills</h3>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Problem Solving</span><span class="skill-pct">80%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="96"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Critical Thinking</span><span class="skill-pct">85%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="94"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Effective Communication</span><span class="skill-pct">85%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="90"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Team Collaboration</span><span class="skill-pct">92%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="92"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header"><span class="skill-name">Curiosity & Learning</span><span class="skill-pct">98%</span></div>
-          <div class="progress-track"><div class="progress-fill" data-width="98"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <p class="section-label">My Journey</p>
-    <h2 class="section-title">Work Experience</h2>
-    <div class="section-line"></div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-header">
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">My Journey</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+      <div class="timeline">
+        <div class="timeline-item">
           <div class="timeline-role">Data Analyst</div>
-          <div class="timeline-company">Freelance</div>
-          <div class="timeline-period">2025 – Present · Lagos, Nigeria.</div>
+          <div class="timeline-company">Freelance | Remote</div>
+          <div class="timeline-period">2025 – Present</div>
+          <p class="timeline-desc">Standardised and validated financial datasets in Python, reducing recurring errors by approximately 40%. Built automated Power BI reports that improved reporting efficiency by about 20%, and developed Excel and Power BI sales dashboards to monitor KPIs against targets and support better commercial decisions.</p>
         </div>
-        <div class="timeline-desc">
-          Delivered end-to-end data analytics solutions for clients across finance, retail, and operations. Built executive dashboards using Power BI and Excel, reducing manual reporting by 70%+. Delivered insights that directly influenced revenue strategy and operational efficiency.
+        <div class="timeline-item">
+          <div class="timeline-role">AI-Powered Data Analysis Intern</div>
+          <div class="timeline-company">Excelerate | Remote</div>
+          <div class="timeline-period">September 2026 – October 2026</div>
+          <p class="timeline-desc">Built and trained machine-learning models to forecast future learning opportunities across geographic markets. Used AI-assisted workflows to document and test the analysis, then checked outputs against real data for accuracy in the visuals and insights.</p>
         </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-header">
-          <div class="timeline-role">Data Analytics Intern</div>
-          <div class="timeline-company">Excelerate</div>
-          <div class="timeline-period">2024 · Remote</div>
+        <div class="timeline-item">
+          <div class="timeline-role">Data Analyst Intern</div>
+          <div class="timeline-company">Excelerate | Remote</div>
+          <div class="timeline-period">August 2024 – September 2024</div>
+          <p class="timeline-desc">Supported campaign-data cleaning and dashboard development to flag underperforming ad campaigns. The analysis informed budget reductions associated with an estimated 18% saving in ad spend. Also created automated Excel reports for weekly marketing-performance reviews.</p>
         </div>
-        <div class="timeline-desc">
-          Participated in a structured data analytics program, building reporting pipelines and dashboards. Collaborated with team members to analyze business performance metrics and present findings to stakeholders.
+        <h3 class="subheading">Virtual Job Simulations</h3>
+        <div class="timeline-item">
+          <div class="timeline-role">Data Science Job Simulation</div>
+          <div class="timeline-company">Lloyds Banking Group</div>
+          <div class="timeline-period">October 2025 – December 2025</div>
+          <p class="timeline-desc">Built a customer churn prediction model using Random Forest and Python, achieving a ROC-AUC of 0.82. Prepared the data, handled missing values, encoded and scaled features, and tuned model parameters.</p>
         </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-header">
-          <div class="timeline-role">Data Scientist</div>
-          <div class="timeline-company">Lloyd's Banking Group</div>
-          <div class="timeline-period">2025 · Job Simulation</div>
-        </div>
-        <div class="timeline-desc">
-          Completed a job simulation focused on financial data analysis, building models to assess loan portfolios and customer risk profiles using Excel and Power BI.
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-header">
-          <div class="timeline-role">Data Analytics & Visualization</div>
+        <div class="timeline-item">
+          <div class="timeline-role">Data Analytics & Visualization Job Simulation</div>
           <div class="timeline-company">Accenture</div>
-          <div class="timeline-period">2023 · Job Simulation</div>
-        </div>
-        <div class="timeline-desc">
-          Completed Accenture's North America Data Analytics & Visualization job simulation. Analyzed and visualized client data to uncover trends and provide strategic recommendations.
+          <div class="timeline-period">February 2025 – April 2025</div>
+          <p class="timeline-desc">Cleaned, modelled, and analysed seven datasets using SQL to uncover content trends, then presented findings through a PowerPoint presentation and video.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <p class="section-label">Credentials</p>
-    <h2 class="section-title">Education & Certifications</h2>
-    <div class="section-line"></div>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-icon">🏅</div>
-        <div class="edu-title">Microsoft Certified: Power BI Data Analyst Associate</div>
-        <div class="edu-issuer">Microsoft</div>
-        <div class="edu-year">PL-300 Certification</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-title">Google Data Analytics Professional Certificate</div>
-        <div class="edu-issuer">Google / Coursera</div>
-        <div class="edu-year">Professional Certificate</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-icon">📊</div>
-        <div class="edu-title">Data Analytics Internship Program</div>
-        <div class="edu-issuer">Excelerate</div>
-        <div class="edu-year">Program Completion</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-icon">💼</div>
-        <div class="edu-title">Data Analytics & Visualization Job Simulation</div>
-        <div class="edu-issuer">Accenture</div>
-        <div class="edu-year">Job Simulation Certificate</div>
+  <section id="education">
+    <div class="container">
+      <p class="section-label">Education & Credentials</p>
+      <h2 class="section-title">Education & Certifications</h2>
+      <div class="section-line"></div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-title">BSc in Economics</div>
+          <div class="edu-issuer">University of Lagos, Nigeria</div>
+          <div class="edu-year">In Progress</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🏅</div>
+          <div class="edu-title">AI-Powered Data Analysis</div>
+          <div class="edu-issuer">Excelerate</div>
+          <div class="edu-year">2026</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📊</div>
+          <div class="edu-title">IBM Data Analyst Professional Certificate</div>
+          <div class="edu-issuer">IBM / Coursera</div>
+          <div class="edu-year">2025</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">📘</div>
+          <div class="edu-title">Google Data Analytics Professional Certificate</div>
+          <div class="edu-issuer">Google / Coursera</div>
+          <div class="edu-year">2024</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">💼</div>
+          <div class="edu-title">Data Visualization Internship Certificate</div>
+          <div class="edu-issuer">Excelerate</div>
+          <div class="edu-year">2024</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- RESUME -->
-<section id="resume">
-  <div class="container">
-    <div class="resume-inner">
-      <p class="section-label" style="text-align:center">My Documents</p>
-      <h2 class="section-title" style="text-align:center">Resume & LinkedIn</h2>
-      <div class="section-line" style="margin: 0 auto 32px"></div>
-      <p>I'm open to freelance projects, full-time data analyst roles, and consulting engagements. Download my resume to learn more about my experience, or connect with me on LinkedIn.</p>
-      <div class="resume-actions">
-        <a href="https://github.com/alabiibrahim/myportfolio/blob/main/Resume/Alabi Ibrahim_Resume.pdf" target="_blank" class="btn-primary">
-          ⬇ Download Resume
-        </a>
-        <a href="https://www.linkedin.com/in/alabi-ibrahim-73332b236" target="_blank" class="btn-secondary">
-          🔗 LinkedIn Profile
-        </a>
+  <section id="resume">
+    <div class="container">
+      <div class="resume-inner">
+        <p class="section-label">My Documents</p>
+        <h2 class="section-title">Resume & LinkedIn</h2>
+        <div class="section-line" style="margin-left:auto;margin-right:auto;"></div>
+        <p>My resume provides a closer look at my experience, technical skills, and selected projects. You can also connect with me on LinkedIn to discuss freelance work, contract projects, or remote Data Analyst opportunities.</p>
+        <div class="resume-actions">
+          <a href="https://github.com/alabiibrahim/myportfolio/blob/main/Resume/Alabi%20Ibrahim_resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">View / Download Resume</a>
+          <a href="https://www.linkedin.com/in/alabi-ibrahim-73332b236" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn Profile</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="container">
-    <p class="section-label">My Work</p>
-    <h2 class="section-title">Project Portfolio</h2>
-    <div class="section-line"></div>
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">Selected Work</p>
+      <h2 class="section-title">Project Portfolio</h2>
+      <div class="section-line"></div>
+      <p class="muted" style="max-width:760px;margin-top:-18px;margin-bottom:25px;">A selection of analytics projects covering business performance, marketing, finance, logistics, and fraud risk. Each case study explains the problem, approach, findings, and recommendations.</p>
 
-    <!-- TOOL TABS -->
-    <div class="tool-tabs">
-      <button class="tab-btn active" onclick="filterProjects('all', this)">All Projects</button>
-      <button class="tab-btn" onclick="filterProjects('excel', this)">📗 Excel</button>
-      <button class="tab-btn" onclick="filterProjects('powerbi', this)">📘 Power BI</button>
-      <button class="tab-btn" onclick="filterProjects('sql', this)">🗄 SQL</button>
-      <button class="tab-btn" onclick="filterProjects('python', this)">🐍 Python</button>
-      <button class="tab-btn" onclick="filterProjects('tableau', this)">📊 Tableau</button>
-    </div>
-
-    <!-- ALL PROJECTS PANEL -->
-    <div id="panel-all" class="projects-panel active">
-
-      <!-- Excel Projects -->
-      <div class="project-card" data-tool="excel"> 
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/Business%20IntelligenceGIF.gif" alt="Business Intelligence" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Excel</span>
-          <div class="project-title">Business Intelligence Report – Identified $1.62M in High-Value Growth</div>
-          <div class="project-desc">Interactive dashboard pinpointing revenue drivers across 300 customers and 50 product lines with weekly distribution and quarterly YoY comparisons.</div>
-          <a href="https://alabiibrahim.github.io/Business-Sales-Intelligence-Report/" target="_blank" class="project-link">View Business Intelligence Case Study →</a>
-        </div>
-      </div>
-      
-      <div class="project-card" data-tool="excel">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/DashboardGIF.gif" alt="Superstore" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Excel</span>
-          <div class="project-title">Superstore Sales Report – Increased Sales by 20% & YoY Profit by 14.2%</div>
-          <div class="project-desc">Identified top-performing product lines, customer segments, and shipping methods to maximize profit growth and streamline sales strategy.</div>
-          <a href="https://alabiibrahim.github.io/Superstore-Sales-Report/" target="_blank" class="project-link">View Superstore Sales Report Case Study →</a>
-        </div>
+      <div class="tool-tabs" role="group" aria-label="Filter projects by tool">
+        <button class="tab-btn active" type="button" data-filter="all">All Projects</button>
+        <button class="tab-btn" type="button" data-filter="excel">Excel</button>
+        <button class="tab-btn" type="button" data-filter="powerbi">Power BI</button>
+        <button class="tab-btn" type="button" data-filter="sql">SQL</button>
+        <button class="tab-btn" type="button" data-filter="python">Python</button>
+        <button class="tab-btn" type="button" data-filter="tableau">Tableau</button>
       </div>
 
+      <div class="projects-grid" id="projectsGrid">
+        <article class="project-card" data-tool="python">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/ac7.PNG" alt="Real-time fraud detection project" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'🐍'}))" />
+          <div class="project-body"><span class="project-tag">Python · Kafka · ML</span><h3 class="project-title">Real-Time Fraud Detection System</h3><p class="project-desc">Built an end-to-end streaming fraud-detection pipeline using Kafka, Docker, XGBoost, SHAP, graph-based risk scoring, and a Streamlit analyst dashboard. Scored 6.36M transactions, achieving 0.9999 ROC-AUC, 0.9834 PR-AUC, 89% precision, 95% recall, and under 50ms scoring latency. Re-engineered ingestion to reduce projected processing time from 7–8 days to under one hour.</p><a href="https://alabiibrahim.github.io/Real_Time_Fraud_Detection_System/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      <div class="project-card" data-tool="excel">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/sales%20and%20marketing%20report.gif" alt="Sales Marketing" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📗</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Excel</span>
-          <div class="project-title">Sales & Marketing Performance – Reduced Call Abandonment by 15%</div>
-          <div class="project-desc">Comprehensive call center intelligence dashboard tracking 200k+ annual calls, enabling real-time monitoring of agent productivity and conversion rates.</div>
-          <a href="https://alabiibrahim.github.io/Sales-Call-Marketing-Center/" target="_blank" class="project-link">View Sales & Marketing Performance Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="sql">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/sales%20and%20marketing%20report.gif" alt="Marketing A/B testing analysis" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'🗄️'}))" />
+          <div class="project-body"><span class="project-tag">SQL Server · Python</span><h3 class="project-title">Marketing A/B Testing Analysis</h3><p class="project-desc">Analysed more than 588,000 records and tested conversion differences between ad and PSA groups. The ad group converted at 2.55% versus 1.79% for PSA, with a statistically significant result (chi-square = 54, p less than 0.005). Findings informed recommendations for reallocating campaign spend.</p><a href="https://alabiibrahim.github.io/Marketing_AB_Testing/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
+        <article class="project-card" data-tool="powerbi">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/01.png" alt="Logistics operations Power BI dashboard" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📘'}))" />
+          <div class="project-body"><span class="project-tag">Power BI · DAX</span><h3 class="project-title">Logistics Operations Analysis & Performance Report</h3><p class="project-desc">Built a six-page Power BI report covering 85,410 loads and trips across 36 months. Analysed operations, delivery performance, fleet utilisation, driver safety, and profitability, surfacing $256.26M in revenue, a 65% contribution margin, an 87% detention rate, and a 43.9% on-time delivery rate.</p><a href="https://alabiibrahim.github.io/Logistic-Operations-Analysis-and-Performance-Report/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      <!-- Power BI Projects -->
-      <div class="project-card" data-tool="powerbi">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/01.png" alt="Logistic Report" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📘</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Power BI</span>
-          <div class="project-title">Logistic Operations Analysis & Performance Report</div>
-          <div class="project-desc">Analyzed and build an interactive Power BI report across 14 tables that shows how a trucking company performs across operations, deliveries, fleet, drivers and safety, and profitability</div>
-          <a href="https://alabiibrahim.github.io/Logistic-Operations-Analysis-and-Performance-Report/" target="_blank" class="project-link">View Logistic Operations Analysis Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="excel">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/Business%20IntelligenceGIF.gif" alt="Business intelligence report" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📗'}))" />
+          <div class="project-body"><span class="project-tag">Excel</span><h3 class="project-title">Business Intelligence Report</h3><p class="project-desc">Built an interactive dashboard to analyse revenue drivers across 300 customers and 50 product lines, with weekly distributions and quarterly year-over-year comparisons to support inventory and marketing decisions.</p><a href="https://alabiibrahim.github.io/Business-Sales-Intelligence-Report/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      <div class="project-card" data-tool="powerbi">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/PlanGIF.gif" alt="Plant Co" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📘</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Power BI</span>
-          <div class="project-title">Plant Co. Performance – $13M Revenue Tracked Across 6 Continents</div>
-          <div class="project-desc">Actionable insights on profitability, product segmentation, and geographic performance. Achieved 39.62% gross profit margin analysis with $512K YoY dip identification.</div>
-          <a href="https://alabiibrahim.github.io/Plant-Co.-Global-Performance/" target="_blank" class="project-link">View Plant Co. Performance Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="powerbi">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/FinGIF.gif" alt="Bank loan intelligence dashboard" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📘'}))" />
+          <div class="project-body"><span class="project-tag">SQL · Power BI</span><h3 class="project-title">Bank Loan Intelligence System</h3><p class="project-desc">Analysed a loan portfolio with more than $435M in funded loans. The dashboard tracks portfolio health, borrower risk, a 13.3% average debt-to-income ratio, and an 86.2% good-loan share.</p><a href="https://alabiibrahim.github.io/Bank-Loan-Intelligence-System/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      <div class="project-card" data-tool="powerbi">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/FinGIF.gif" alt="Bank Loan" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📘</div>'" />
-        <div class="project-body">
-          <span class="project-tag">SQL, Power BI</span>
-          <div class="project-title">Bank Loan Intelligence System – Analyzes Over $435M in Loans</div>
-          <div class="project-desc">Comprehensive loan portfolio monitoring with 13.3% average DTI visualization, identifying Debt Consolidation as the primary driver. Maintained 86.2% Good Loan rate.</div>
-          <a href="https://alabiibrahim.github.io/Bank-Loan-Intelligence-System/" target="_blank" class="project-link">View Bank Loan Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="sql">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/ccgif.gif" alt="Credit card fraud risk dashboard" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'🗄️'}))" />
+          <div class="project-body"><span class="project-tag">SQL · Power BI</span><h3 class="project-title">Credit Card Fraud Risk Analysis</h3><p class="project-desc">Built a fraud-monitoring dashboard using 300 simulated transactions. It analyses 161 flagged transactions and $79.86K in recorded fraud transaction value across merchant, payment, geographic, time, and customer segments. The figures are from a practice dataset, not real client losses.</p><a href="https://alabiibrahim.github.io/Credit-Card-Fraud-Risk-Analysis/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      
-     <div class="project-card" data-tool="powerbi">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/T1.PNG" alt="Forensic Report" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>📘</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Power BI</span>
-          <div class="project-title">Forensic Report – Identified Probable Perpetrator of Tenet Rice Homicide</div>
-          <div class="project-desc">Systematically analyzed physical, digital, and testimonial evidence to reconstruct events and provide an unbiased foundation for legal decision-making.</div>
-          <a href="https://alabiibrahim.github.io/Forensic-Report-Tenet-Rice-Homicide/" target="_blank" class="project-link">View Forensic Report Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="powerbi">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/PlanGIF.gif" alt="Plant company performance dashboard" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📘'}))" />
+          <div class="project-body"><span class="project-tag">Power BI</span><h3 class="project-title">Plant Co. Global Performance</h3><p class="project-desc">Explored revenue, gross profit, product segments, and geographic performance across six continents. The dashboard tracks $13M in revenue, a 39.62% gross profit margin, and a $512K year-over-year revenue dip.</p><a href="https://alabiibrahim.github.io/Plant-Co.-Global-Performance/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      
-      <!-- SQL Project -->
+        <article class="project-card" data-tool="sql">
+          <img src="https://raw.githubusercontent.com/alabiibrahim/myportfolio/main/photo/ERD-%20Screenshot.png" alt="SQL relational database entity relationship diagram" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'🗄️'}))" />
+          <div class="project-body"><span class="project-tag">SQL Server</span><h3 class="project-title">Industry Database Design</h3><p class="project-desc">Designed a relational SQL Server database with a focus on structured data, maintainability, and security. The case study documents the database design and implementation decisions.</p><a href="https://alabiibrahim.github.io/Industry-Database-Design---SQL/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      <div class="project-card" data-tool="sql"> <!---->
-        <img src="https://github.com/alabiibrahim/myportfolio/blob/main/photo/Screenshot_6-7-2026_15385_localhost.png" alt="Database Design" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>🗄</div>'" />
-        <div class="project-body">
-          <span class="project-tag">SQL, Python(SSMS)</span>
-          <div class="project-title">Marketing A/B Testing</div>
-          <div class="project-desc">Analyzed a 588K-user marketing A/B test in SQL/Python; driving data-backed ad-spend recommendations.</div>
-          <a href="https://alabiibrahim.github.io/Marketing_AB_Testing/" target="_blank" class="project-link">View Marketing A/B Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="python">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/py5.jpeg" alt="Python data cleaning project" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'🐍'}))" />
+          <div class="project-body"><span class="project-tag">Python</span><h3 class="project-title">Data Cleaning with Python</h3><p class="project-desc">Prepared raw spreadsheet data for analysis by cleaning and transforming files with Pandas, NumPy, and OpenPyXL.</p><a href="https://alabiibrahim.github.io/Data-Cleaning---Python/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      
-      <div class="project-card" data-tool="sql"> <!---->
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/ccgif.gif" alt="Database Design" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>🗄</div>'" />
-        <div class="project-body">
-          <span class="project-tag">SQL | Power BI </span>
-          <div class="project-title">Credit Card Fraud Risk Analysis</div>
-          <div class="project-desc">Built a fraud monitoring dashboard that helps identify where, when, and to whom credit card fraud is most likely to happen.</div>
-          <a href="https://alabiibrahim.github.io/Credit-Card-Fraud-Risk-Analysis/" target="_blank" class="project-link">View Credit Card Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="excel">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/DashboardGIF.gif" alt="Superstore sales report" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📗'}))" />
+          <div class="project-body"><span class="project-tag">Excel</span><h3 class="project-title">Superstore Sales & Profitability Analysis</h3><p class="project-desc">Analysed product lines, customer segments, and shipping methods to identify sales and profitability patterns that can inform commercial decisions.</p><a href="https://alabiibrahim.github.io/Superstore-Sales-Report/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-      
-        <div class="project-card" data-tool="sql"> <!---->
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/ERD-%20Screenshot.png" alt="Database Design" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>🗄</div>'" />
-        <div class="project-body">
-          <span class="project-tag">SQL (SSMS)</span>
-          <div class="project-title">Industry Database Design – Scalability, Security, Maintainability</div>
-          <div class="project-desc">Complete SQL Server-based relational database following industry best practices for security, scalability, and maintainability — the same standards used by companies like Google.</div>
-          <a href="https://alabiibrahim.github.io/Industry-Database-Design---SQL/" target="_blank" class="project-link">View Industry Database Case Study →</a>
-        </div>
-      </div>
+        <article class="project-card" data-tool="excel">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/sales%20and%20marketing%20report.gif" alt="Sales and marketing call centre dashboard" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📗'}))" />
+          <div class="project-body"><span class="project-tag">Excel</span><h3 class="project-title">Sales & Marketing Performance Dashboard</h3><p class="project-desc">Created a call-centre dashboard covering more than 200,000 annual calls, with views of agent productivity, regional demand, and conversion performance.</p><a href="https://alabiibrahim.github.io/Sales-Call-Marketing-Center/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
 
-
-      <!-- Python placeholder -->
-      <div class="project-card" data-tool="python">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/ac7.PNG" alt="Database Design" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>🐍</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Python</span>
-          <div class="project-title">Real Time Fraud Detection System</div>
-          <div class="project-desc">This project creates a real-time, production-grade fraud detection system from scratch that includes explainability, data streaming, machine learning, graph analysis, and a live analyst dashboard.</div>
-          <a href="https://alabiibrahim.github.io/Real_Time_Fraud_Detection_System/" target="_blank" class="project-link">View Real Time Fraud Detection Case Study →</a>
-        </div>
-      </div>
-
-      
-      <div class="project-card" data-tool="python">
-        <img src="https://alabiibrahim.github.io/myportfolio/photo/py5.jpeg" alt="Database Design" class="project-img"
-          onerror="this.outerHTML='<div class=\'project-img-placeholder\'>🐍</div>'" />
-        <div class="project-body">
-          <span class="project-tag">Python</span>
-          <div class="project-title">Data Cleaning</div>
-          <div class="project-desc">Cleaned and transform data ready for analysis and machine learning purpose using Python (Pandas, Numpy and Openpyxl).</div>
-          <a href="https://alabiibrahim.github.io/Data-Cleaning---Python/" target="_blank" class="project-link">View Data Cleaning Case Study →</a>
-        </div>
-      </div>
-
-      <!-- Tableau placeholder -->
-      <div class="project-card" data-tool="tableau">
-        <div class="project-img-placeholder">📊</div>
-        <div class="project-body">
-          <span class="project-tag">Tableau</span>
-          <div class="project-title">Tableau Visualization Projects</div>
-          <div class="project-desc">Interactive Tableau dashboards with advanced calculated fields and visualization techniques. More projects coming soon.</div>
-          <a href="https://github.com/alabiibrahim" target="_blank" class="project-link">Read More →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- FILTERED PANELS -->
-    <div id="panel-excel" class="projects-panel"></div>
-    <div id="panel-powerbi" class="projects-panel"></div>
-    <div id="panel-sql" class="projects-panel"></div>
-    <div id="panel-python" class="projects-panel"></div>
-    <div id="panel-tableau" class="projects-panel"></div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <p class="section-label">Let's Talk</p>
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="section-line"></div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Contact Details</h3>
-        <div class="contact-item">
-          <span class="contact-icon">📧</span>
-          <a href="mailto:alabi0147@gmail.com">alabi0147@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📞</span>
-          <span>(234) 0902-7929-795</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">📍</span>
-          <span>Lagos, Nigeria · GMT+1</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">🌐</span>
-          <a href="https://www.linkedin.com/in/alabi-ibrahim-73332b236" target="_blank">linkedin.com/in/alabi-ibrahim-73332b236</a>
-        </div>
-      </div>
-      <div class="contact-cta">
-        <h3>Ready to work together?</h3>
-        <p>"Without data, you're just another person with an opinion." — W. Edwards Deming</p>
-        <p>If you're looking for a data analyst who can turn your numbers into strategy, let's connect.</p>
-        <a href="mailto:alabi0147@gmail.com" class="btn-white">✉ Send Me a Message</a>
+        <article class="project-card" data-tool="powerbi">
+          <img src="https://alabiibrahim.github.io/myportfolio/photo/T1.PNG" alt="Forensic evidence analysis dashboard" class="project-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'project-img-placeholder',textContent:'📘'}))" />
+          <div class="project-body"><span class="project-tag">Power BI</span><h3 class="project-title">Forensic Evidence Analysis Case Study</h3><p class="project-desc">Organised physical, digital, and testimonial evidence into an analytical timeline to examine events and present findings in a clear, traceable format.</p><a href="https://alabiibrahim.github.io/Forensic-Report-Tenet-Rice-Homicide/" target="_blank" rel="noopener noreferrer" class="project-link">View Case Study →</a></div>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2025 Alabi Ibrahim · Data Analyst · Lagos, Nigeria</p>
-  <p style="margin-top:8px"><a href="https://www.linkedin.com/in/alabi-ibrahim-73332b236" target="_blank">LinkedIn</a> · <a href="https://github.com/alabiibrahim" target="_blank">GitHub</a> · <a href="mailto:alabi0147@gmail.com">Email</a></p>
-</footer>
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Let's Talk</p>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-line"></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Contact Details</h3>
+          <div class="contact-item"><span class="contact-icon">📧</span><a href="mailto:alabi0147@gmail.com">alabi0147@gmail.com</a></div>
+          <div class="contact-item"><span class="contact-icon">📞</span><a href="tel:+2349027929795">+234 902 792 9795</a></div>
+          <div class="contact-item"><span class="contact-icon">📍</span><span>Lagos, Nigeria · GMT+1</span></div>
+          <div class="contact-item"><span class="contact-icon">🌐</span><a href="https://www.linkedin.com/in/alabi-ibrahim-73332b236" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></div>
+          <div class="contact-item"><span class="contact-icon">💻</span><a href="https://github.com/alabiibrahim" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        </div>
+        <div class="contact-cta">
+          <h3>Have a data problem to solve?</h3>
+          <p>Whether you need cleaner data, more reliable reporting, a performance dashboard, or help understanding what your numbers are saying, let's talk.</p>
+          <a href="mailto:alabi0147@gmail.com?subject=Data%20Analytics%20Enquiry" class="btn-white">Send Me a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // Mobile menu
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
+  <footer>
+    <p>© <span id="year"></span> Alabi Ibrahim · Data Analyst · Lagos, Nigeria</p>
+    <p><a href="https://www.linkedin.com/in/alabi-ibrahim-73332b236" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/alabiibrahim" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="mailto:alabi0147@gmail.com">Email</a></p>
+  </footer>
 
-  // Animate progress bars on scroll
-  function animateBars() {
-    const fills = document.querySelectorAll('.progress-fill');
-    fills.forEach(fill => {
-      const rect = fill.closest('.skill-item').getBoundingClientRect();
-      if (rect.top < window.innerHeight - 60 && !fill.style.width.includes('%')) {
-        fill.style.width = fill.dataset.width + '%';
-      }
-    });
-  }
-
-  window.addEventListener('scroll', animateBars);
-  animateBars();
-
-  // Project filter tabs
-  function filterProjects(tool, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    document.querySelectorAll('.projects-panel').forEach(p => p.classList.remove('active'));
-
-    if (tool === 'all') {
-      document.getElementById('panel-all').classList.add('active');
-      return;
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const button = document.querySelector('.hamburger');
+      const isOpen = menu.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(isOpen));
     }
 
-    const panel = document.getElementById('panel-' + tool);
-    panel.innerHTML = '';
+    // Filter project cards in place, avoiding duplicated cloned cards.
+    const filterButtons = document.querySelectorAll('.tab-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-    const cards = document.querySelectorAll('#panel-all .project-card');
-    let found = 0;
-    cards.forEach(card => {
-      if (card.dataset.tool === tool) {
-        panel.appendChild(card.cloneNode(true));
-        found++;
-      }
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const selectedTool = button.dataset.filter;
+        filterButtons.forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+
+        let visibleCount = 0;
+        projectCards.forEach((card) => {
+          const showCard = selectedTool === 'all' || card.dataset.tool === selectedTool;
+          card.hidden = !showCard;
+          if (showCard) visibleCount += 1;
+        });
+
+        let emptyState = document.getElementById('emptyProjects');
+        if (!emptyState) {
+          emptyState = document.createElement('p');
+          emptyState.id = 'emptyProjects';
+          emptyState.className = 'empty-state';
+          emptyState.textContent = 'More projects in this category will be added soon.';
+          document.getElementById('projectsGrid').appendChild(emptyState);
+        }
+        emptyState.hidden = visibleCount !== 0;
+      });
     });
 
-    if (found === 0) {
-      panel.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-light);"><div style="font-size:3rem;margin-bottom:16px">🚀</div><p style="font-size:1rem">More ' + tool.charAt(0).toUpperCase() + tool.slice(1) + ' projects coming soon!</p></div>';
-    }
-
-    panel.classList.add('active');
-  }
-
-  // Smooth reveal on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.project-card, .edu-card, .timeline-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
